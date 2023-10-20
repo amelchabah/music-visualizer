@@ -34,9 +34,9 @@ export default class LogoIut {
         const remapped = 1 + AudioController.dataArray[0] / 255;
         this.icosphere.scale.set(remapped, remapped, remapped); 
 
-        for (let i =0; i < this.circles.length; i++) {
+        for (let i = 0; i < this.circles.length; i++) {
             const circle = this.circles[i];
-            const scale = 1 + AudioController.dataArray[i] / 255;
+            const scale = 1 + AudioController.dataArray[i+1] / 255;
             circle.scale.set(scale, scale, scale);
             
         }
