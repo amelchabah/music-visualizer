@@ -45,7 +45,6 @@ class SCENE {
         this.gltfLoader.load('/logo-iut.glb', (gltf) => {
             console.log(gltf)
         } )
-
     }
 
     setupScene() {
