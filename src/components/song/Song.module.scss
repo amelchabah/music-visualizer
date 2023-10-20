@@ -1,0 +1,40 @@
+.song {
+    display: flex;
+    // height: 100%;
+    width: 100%;
+    gap: 10px;
+    opacity: 0.5;
+    cursor: pointer;
+    flex-direction: row-reverse;
+    text-align: end;
+    // animation: fadeIn 1.2s ease-in-out;
+
+    &:hover, &.active {
+        opacity: 1 !important;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    
+
+    img {
+        height: 70px;
+        width: 70px;
+    }
+
+    .title h4 {
+        max-width: 150px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    
+    }
+}
+
+// @keyframes fadeIn {
+//     from {
+//         opacity: 0;
+//     }
+//     to {
+//         opacity: 0.5;
+//     }
+// }

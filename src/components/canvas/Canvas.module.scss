@@ -1,0 +1,11 @@
+.canvas {
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    // background: black;
+    // background: radial-gradient(circle, rgba(0, 0, 0, 1) 5%,  rgb(18, 18, 18) 100%);
+}

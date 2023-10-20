@@ -1,0 +1,14 @@
+.picker {
+    position: fixed;
+    top: 15%;
+    left: 3%;
+    div {
+        opacity: 0.3;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

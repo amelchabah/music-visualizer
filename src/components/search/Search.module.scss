@@ -1,0 +1,22 @@
+.searchWrapper {
+    width: fit-content;
+    position: fixed;
+    left: 0;
+    top: 5%;
+    right: 0;
+    margin-left: 3%;
+
+    input {
+        
+        border: none;
+        outline: none;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #ffffff50;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #fff;
+        background-color: transparent;
+        // margin: auto;
+        margin-bottom: 10px;
+    }
+}
