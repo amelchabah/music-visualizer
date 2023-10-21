@@ -30,9 +30,9 @@ class SCENE {
         this.setupCamera();
         this.setupRenderer();
         this.setupControls();
-        // this.setupStats();
         this.setupPostProcessing();
         this.setupGLTFLoader();
+        // this.setupStats();
 
         this.addObjects();
         this.addEvents();

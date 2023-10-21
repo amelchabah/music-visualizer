@@ -11,7 +11,6 @@ import gsap from 'gsap';
 
 function App() {
   const songsRef = useRef(null);
-
   const songs = useCustomStore((state) => state.songs);
   const [tracklist, setTracklist] = useState([]);
   const [currentSong, setCurrentSong] = useState(null);
@@ -114,7 +113,7 @@ function App() {
   // }, [currentSong]);
 
   const animateSongs = () => {
-    const songElements = document.querySelectorAll(`.${styles.song}`);
+    const songElements = songsRef.current.children;
     gsap.from(songElements,
       {
         opacity: 0,
