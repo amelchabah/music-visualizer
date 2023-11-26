@@ -7,6 +7,7 @@ import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPa
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 // import Stats from "three/examples/jsm/libs/stats.module.js";
 import Cube from './objects/Cube.js';
+import Cover from './objects/Cover.js';
 import Sphere from './objects/Sphere.js';
 import Line from './objects/Line.js';
 import LogoIut from './objects/LogoIut.js';
@@ -31,11 +32,16 @@ class SCENE {
         this.setupRenderer();
         this.setupControls();
         this.setupPostProcessing();
+        this.setupTextureLoader();
         this.setupGLTFLoader();
         // this.setupStats();
 
         this.addObjects();
         this.addEvents();
+    }
+
+    setupTextureLoader() {
+        this.textureLoader = new THREE.TextureLoader();
     }
 
 
@@ -165,7 +171,7 @@ class SCENE {
         this.cube = new Cube();
         // this.cube2 = new Cube();
         this.scene.add(this.cube.group);
-
+        this.cover = new Cover();
         this.sphere = new Sphere();
         this.line = new Line();
         this.logoIut = new LogoIut();
@@ -182,6 +188,11 @@ class SCENE {
             case 'cube':
                 this.selectedObject = this.cube;
                 this.camera.position.set(0, 0, 8);
+                break;
+            case 'cover':
+                this.selectedObject = this.cover;
+                this.camera.position.set(0, 0, 5);
+                this.bloomPass.strength = 0;
                 break;
             case 'line':
                 this.selectedObject = this.line;
