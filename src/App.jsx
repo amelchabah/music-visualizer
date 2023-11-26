@@ -40,78 +40,6 @@ function App() {
     return `${minutes}:${seconds}`;
   }
 
-  // const fetchData = async () => {
-  //   if (currentSong) {
-  //     let response = await fetch(`${currentSong.artist.tracklist}`, {
-  //       method: 'GET',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Access-Control-Allow-Origin': 'no-cors',
-  //         'mode': 'no-cors',
-  //         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-  //         'Access-Control-Allow-Credentials': 'true',
-  //       },
-  //     })
-  //     .then(
-  //       response => {
-  //         console.log(response);
-  //         response.json();
-  //       },
-  //       error => {
-  //         console.log(error);
-  //     });
-  //     // response = await response.json();
-  //     // console.log(response);
-  //   }
-  // };
-  // useEffect(() => {
-    // fetchData();
-  // }
-    // , [currentSong]);
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     // You can await here
-  //     const response = await MyAPI.getData(someId);
-  //     // ...
-  //   }
-  //   fetchData();
-  // }, [someId])
-
-  // useEffect(() => {
-  //   if (currentSong && currentSong.artist.id) {
-  //     console.log(currentSong.artist.tracklist)
-  //     // Utilisez l'API Deezer pour récupérer les données du fichier JSON
-  //     fetch(`https://cors-anywhere.herokuapp.com/${currentSong.artist.tracklist}`, {
-  //       method: 'GET',
-  //       headers: {
-  //         // 'Access-Control-Allow-Origin': 'foo',
-  //         'Content-Type': 'application/json',
-  //         // Missing required request header. Must specify one of: origin,x-requested-with
-  //         'Access-Control-Allow-Origin': '*',
-  //         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  //         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-  //         'Access-Control-Allow-Credentials': 'true',
-  //         // Retry-After: 3600
-  //         'Retry-After': '3600',
-
-  //       },
-  //     })
-  //       .then(response => response.json())
-  //       .then(data => {
-  //         // Extrait les titres des chansons du fichier JSON
-  //         const songTitles = data.data.map(song => song.title);
-  //         // setTracklist(songTitles);
-  //         // only first 10 songs
-
-  //         setTracklist(songTitles.slice(0, 5));
-  //         console.log(songTitles);
-  //       })
-  //       .catch(error => console.error(error));
-  //   }
-
-  // }, [currentSong]);
-
   const animateSongs = () => {
     const songElements = songsRef.current.children;
     gsap.from(songElements,
@@ -140,7 +68,7 @@ function App() {
           currentSong ? (
             <div className='infos'>
               {/* <ul className='tracklist'>{tracklist.map(title => ( */}
-                {/* <li key={title}>{title}</li> */}
+              {/* <li key={title}>{title}</li> */}
               {/* ))}</ul> */}
               {/* <h4 className='grey tracks'>Last tracks</h4> */}
 
@@ -151,12 +79,18 @@ function App() {
               {/* <h2 className='grey'>// PLAYING</h2> */}
               <h2>{currentSong.title}</h2>
               <h2>{currentSong.artist.name}</h2>
-              <h3 className='grey'>{convertTime(currentSong.duration)}</h3>
+              {
+                // only if current song duration is defined
+                currentSong.duration
+                  ? (
+                    <h3 className='grey'>{convertTime(currentSong.duration)}</h3>
+                  )
+                  : null
+              }
             </div>
           )
             : null
         }
-
 
         <div className='songs' ref={songsRef}>
           {songs.map((song) => (
