@@ -53,6 +53,11 @@ const Search = () => {
         noClick: true,
     });
 
+    // when is active console log active
+    useEffect(() => {
+        console.log(isDragActive);
+    }, [isDragActive]);
+
     useEffect(() => {
         AudioController.setup();
     }, []);
@@ -78,18 +83,12 @@ const Search = () => {
             <div className={styles.searchWrapper}>
                 <input type="text" placeholder="Search a song" onChange={(e) => setArtist(e.target.value)} onKeyDown={onKeyDown} />
                 <h4 className="grey">by <a href="https://github.com/amelchabah/" title="author" target="_blank" rel="noreferrer">@amelchabah</a>  &lt;&lt;</h4>
-                <div className={styles.dragZone}  {...getRootProps()}>
+                <div className={styles.allzone} {...getRootProps()}>
 
-                    {isDragActive ? (
+                    <div className={styles.dragZone} style={isDragActive ? { visibility: "visible" } : { visibility: "hidden" }}>
                         <input className={styles.inputDropzone}  {...getInputProps()} />
-                    )
-                        :
-                        null
-                    }
+                    </div>
                 </div>
-
-
-
 
             </div>
         </>

@@ -19,23 +19,28 @@
         margin-bottom: 10px;
     }
 
-    .dragZone {
-        z-index: -5000;
+    .allzone {
         width: 100%;
         height: 100vh;
         position: fixed;
         left: 0;
         top: 0;
 
-        input {
-            background-color: #000000a3;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            margin: 0 auto;
-            // top: 50%;
-            // left: 50%;
+        .dragZone {
+            // z-index: -5000;
+            // position: fixed;
+            // left: 0;
+            // top: 0;
+
+            input {
+                width: 100%;
+                height: 100%;
+                // position: fixed;
+                margin: 0 auto;
+                // top: 50%;
+                // left: 50%;
+            }
         }
     }
-}
 
+}

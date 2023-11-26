@@ -191,7 +191,7 @@ class SCENE {
                 break;
             case 'cover':
                 this.selectedObject = this.cover;
-                this.camera.position.set(0, 0, 5);
+                this.camera.position.set(0, 0, 30);
                 this.bloomPass.strength = 0;
                 break;
             case 'line':
