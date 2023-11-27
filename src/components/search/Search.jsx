@@ -2,6 +2,7 @@ import fetchJsonp from "fetch-jsonp";
 import styles from "./Search.module.scss";
 import useCustomStore from "../../customStore";
 import { useEffect, useState } from "react";
+import Dropzone from "../dropzone/Dropzone";
 import { useDropzone } from "react-dropzone";
 import AudioController from "../../utils/AudioController";
 
@@ -52,12 +53,7 @@ const Search = () => {
         multiple: false,
         noClick: true,
     });
-
-    // when is active console log active
-    useEffect(() => {
-        console.log(isDragActive);
-    }, [isDragActive]);
-
+    
     useEffect(() => {
         AudioController.setup();
     }, []);
@@ -78,18 +74,19 @@ const Search = () => {
         setArtist("");
     };
 
+        // when is active console log active
+        useEffect(() => {
+            console.log(isDragActive);
+        }, [isDragActive]);
+    
+
     return (
         <>
-            <div className={styles.searchWrapper}>
-                <input type="text" placeholder="Search a song" onChange={(e) => setArtist(e.target.value)} onKeyDown={onKeyDown} />
+            <div className={styles.searchWrapper} {...getRootProps()}>
+                <input className={styles.searchInput} type="text" placeholder="Search a song or drop an mp3" onChange={(e) => setArtist(e.target.value)} onKeyDown={onKeyDown} />
+                <input {...getInputProps()}/>
                 <h4 className="grey">by <a href="https://github.com/amelchabah/" title="author" target="_blank" rel="noreferrer">@amelchabah</a>  &lt;&lt;</h4>
-                <div className={styles.allzone} {...getRootProps()}>
-
-                    <div className={styles.dragZone} style={isDragActive ? { visibility: "visible" } : { visibility: "hidden" }}>
-                        <input className={styles.inputDropzone}  {...getInputProps()} />
-                    </div>
-                </div>
-
+                
             </div>
         </>
 
