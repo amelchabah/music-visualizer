@@ -2,7 +2,6 @@ import fetchJsonp from "fetch-jsonp";
 import styles from "./Search.module.scss";
 import useCustomStore from "../../customStore";
 import { useEffect, useState } from "react";
-import Dropzone from "../dropzone/Dropzone";
 import { useDropzone } from "react-dropzone";
 import AudioController from "../../utils/AudioController";
 
