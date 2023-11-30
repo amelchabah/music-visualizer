@@ -98,7 +98,10 @@ function App() {
           ))}
         </div>
 
-        <Picker />
+        {/* show picker only if a song has been researched or dropped */}
+        {songs.length > 0 ? (
+          <Picker />
+        ) : null}
         <Canvas />
       </main>
 

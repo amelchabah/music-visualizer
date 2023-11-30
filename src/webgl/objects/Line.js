@@ -10,7 +10,7 @@ export default class Line {
         // Couleurs intermédiaires de blanc à noir
         const numberOfSteps = 20; // Le nombre de couleurs intermédiaires que vous souhaitez
         const startColor = 0xFFFFFF; // Blanc
-        const endColor = 0x000000; // Noir
+        // const endColor = 0x000000; // Noir
 
         for (let i = 1; i <= numberOfSteps; i++) {
             const r = Math.round(((startColor >> 16) & 0xFF) * (1 - i / numberOfSteps));

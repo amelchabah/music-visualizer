@@ -82,7 +82,7 @@ const Search = () => {
     return (
         <>
             <div className={styles.searchWrapper} {...getRootProps()}>
-                <input className={styles.searchInput} type="text" placeholder="Search drop a song" onChange={(e) => setArtist(e.target.value)} onKeyDown={onKeyDown} />
+                <input className={styles.searchInput} type="text" placeholder="Search or drop a song" onChange={(e) => setArtist(e.target.value)} onKeyDown={onKeyDown} />
                 <input {...getInputProps()}/>
                 <h4 className="grey">by <a href="https://github.com/amelchabah/" title="author" target="_blank" rel="noreferrer">@amelchabah</a>  &lt;&lt;</h4>
                 

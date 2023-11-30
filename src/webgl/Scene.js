@@ -11,6 +11,7 @@ import Cover from './objects/Cover.js';
 import Sphere from './objects/Sphere.js';
 import Line from './objects/Line.js';
 import LogoIut from './objects/LogoIut.js';
+import BouncingSphere from './objects/BouncingSphere.js';
 import pane from '../utils/Pane.js';
 
 class SCENE {
@@ -168,43 +169,55 @@ class SCENE {
     }
 
     addObjects() {
+        this.logoiut = new LogoIut();
         this.cube = new Cube();
-        // this.cube2 = new Cube();
-        this.scene.add(this.cube.group);
         this.cover = new Cover();
         this.sphere = new Sphere();
         this.line = new Line();
-        this.logoIut = new LogoIut();
-
-        // this.scene.add(this.sphere.mesh);
-        // this.scene.add(this.line.group);
+        this.bouncingSphere = new BouncingSphere();
         this.selectedObject = this.cube;
-        this.camera.position.set(0, 0, 8);
+        this.scene.add(this.selectedObject.group);
+        this.camera.position.set(0, 0, 8);    
     }
 
     changeVisualizer(index) {
         this.scene.remove(this.selectedObject.group);
         switch (index) {
+            case 'logoiut':
+                this.selectedObject = this.logoiut;
+                this.camera.position.set(-5, -10, 10);
+                this.bloomPass.strength = 1;
+                this.bloomPass.threshold = 0;
+                break;
             case 'cube':
                 this.selectedObject = this.cube;
                 this.camera.position.set(0, 0, 8);
+                this.bloomPass.strength = 1;
+                this.bloomPass.threshold = 0;
                 break;
             case 'cover':
                 this.selectedObject = this.cover;
                 this.camera.position.set(0, 0, 30);
                 this.bloomPass.strength = 0;
+                this.bloomPass.threshold = 0;
                 break;
             case 'line':
                 this.selectedObject = this.line;
                 this.camera.position.set(0, 0, 500);
+                this.bloomPass.strength = 1;
+                this.bloomPass.threshold = 0;
                 break;
             case 'sphere':
                 this.selectedObject = this.sphere;
                 this.camera.position.set(0, 0, 10);
+                this.bloomPass.strength = 0.2;
+                this.bloomPass.threshold = 0;
                 break;
-            case 'logoiut':
-                this.selectedObject = this.logoIut;
-                this.camera.position.set(0, 0, 20);
+            case 'bouncingsphere':
+                this.selectedObject = this.bouncingSphere;
+                this.camera.position.set(0, 0, 70);
+                this.bloomPass.strength = 1;
+                this.bloomPass.threshold = 0.3;
                 break;
             default:
                 break;
@@ -229,10 +242,9 @@ class SCENE {
 
     tick = (time, deltaTime, frame) => {
         // this.stats.begin();
-        // this.cube.tick(deltaTime);
+        // this.logoiut.tick(deltaTime);
         // this.sphere.tick();
         this.selectedObject.tick(deltaTime);
-
         this.controls.update();
 
         // executé à chaque frame 

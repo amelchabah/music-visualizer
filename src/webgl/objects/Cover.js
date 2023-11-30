@@ -62,9 +62,10 @@ export default class Cover {
     tick(deltaTime) {
         this.material.uniforms.uTime.value += deltaTime * 0.001;
         this.material.uniforms.uBassFrequency.value = AudioController.dataArray[0];
-
-        // this.mesh.rotation.x += 0.001 * deltaTime;
-        // this.mesh.rotation.z += 0.001 * deltaTime;
-
+    
+        // Réduire la vitesse de rotation
+        this.group.rotation.x += 0.0005 * deltaTime;
+        this.group.rotation.z += 0.0005 * deltaTime;
     }
+    
 }

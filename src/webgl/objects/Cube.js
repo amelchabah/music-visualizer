@@ -3,8 +3,23 @@ import AudioController from '../../utils/AudioController';
 
 export default class Cube {
     constructor() {
+        const cubeTextureLoader = new THREE.CubeTextureLoader();
+        const textureCubes = cubeTextureLoader.load([
+            'posx.jpg', 'posx.jpg',
+            'posx.jpg', 'posx.jpg',
+            'posx.jpg', 'posx.jpg'
+        ]);
+
         this.geometry = new THREE.BoxGeometry(1, 1, 1);
-        this.material = new THREE.MeshNormalMaterial({ });
+        // this.material = new THREE.MeshNormalMaterial({ });
+        this.material = new THREE.MeshBasicMaterial({
+            color: 0xffffff,
+            // wireframe: true,
+            transparent: true,
+            envMap: textureCubes,
+            reflectivity: 1,
+        });
+
         // this.material = new THREE.MeshNormalMaterial({ wireframe: true });
         this.mesh = new THREE.Mesh(this.geometry, this.material);
         this.group = new THREE.Group();

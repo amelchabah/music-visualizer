@@ -10,10 +10,12 @@ const Picker = () => {
             <div className={styles.picker}>
                 <h4 className='grey'>Pick a visualizer</h4>
                 <div onClick={() => pickVisualizer('cube')}>Cube</div>
+                <div onClick={() => pickVisualizer('logoiut')}>Eiffel</div>
                 <div onClick={() => pickVisualizer('cover')}>Cover</div>
-                <div onClick={() => pickVisualizer('line')}>Line</div>
-                <div onClick={() => pickVisualizer('sphere')}>Sphere</div>
-                <div onClick={() => pickVisualizer('logoiut')}>IUT</div>
+                <div onClick={() => pickVisualizer('line')}>Beats</div>
+                <div onClick={() => pickVisualizer('sphere')}>Cotton</div>
+                <div onClick={() => pickVisualizer('bouncingsphere')}>Sphere</div>
+
             </div>
         </>
     )
