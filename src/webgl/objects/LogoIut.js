@@ -13,9 +13,9 @@ export default class LogoIut {
 
         const cubeTextureLoader = new THREE.CubeTextureLoader();
         const textureCube = cubeTextureLoader.load([
-            'icon.jpg', 'icon.png',
-            'icon.jpg', 'icon.png',
-            'icon.jpg', 'icon.png'
+            'textures/icon.jpg', 'textures/icon.png',
+            'textures/icon.jpg', 'textures/icon.png',
+            'textures/icon.jpg', 'textures/icon.png'
         ]);
 
         this.material = new THREE.MeshBasicMaterial({

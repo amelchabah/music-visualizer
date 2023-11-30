@@ -11,13 +11,10 @@ function App() {
   const songsRef = useRef(null);
   const songs = useCustomStore((state) => state.songs);
   const [currentSong, setCurrentSong] = useState(null);
-
-  // Utilisez un effet pour surveiller les changements de currentSong
   useEffect(() => {
     if (currentSong) {
-      // Mise à jour du titre de la page avec le titre de la chanson actuelle
+      // mise à jour du titre de la page avec le titre de la chanson actuelle
       document.title = currentSong.title;
-      // document.artist = currentSong.artist;
     } else {
       document.title = 'music visualizer ✩°｡⋆⸜ 🎧';
     }
