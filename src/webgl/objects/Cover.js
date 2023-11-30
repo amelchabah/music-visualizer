@@ -64,8 +64,8 @@ export default class Cover {
         this.material.uniforms.uBassFrequency.value = AudioController.dataArray[0];
     
         // Réduire la vitesse de rotation
-        this.group.rotation.x += 0.0005 * deltaTime;
-        this.group.rotation.z += 0.0005 * deltaTime;
+        // this.group.rotation.z += 0.0005 * deltaTime;
+        // this.group.rotation.z += 0.0005 * deltaTime;
     }
     
 }

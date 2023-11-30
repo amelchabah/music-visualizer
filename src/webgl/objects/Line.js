@@ -32,22 +32,14 @@ export default class Line {
             })
             this.materials.push(material)
         })
-        // this.mesh = new THREE.Mesh(this.geometry, this.material);
 
         let n = -1; // pour aller de 0 a 6 et pas 1 a 7
         const MODULO = Math.round(256 / this.colors.length);
         this.SPACING = 2;
 
-        // console.log(this.colors.length)
-
-
-
-
         for (let i = 0; i < 256; i++) {
             if (i % MODULO === 0) {
-                // console.log(i);
                 n++;
-                // console.log(n)
             }
 
             this.mesh = new THREE.Mesh(this.geometry, this.materials[n]);

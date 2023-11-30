@@ -8,10 +8,10 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 // import Stats from "three/examples/jsm/libs/stats.module.js";
 import Cube from './objects/Cube.js';
 import Cover from './objects/Cover.js';
-import Sphere from './objects/Sphere.js';
+import Cotton from './objects/Cotton.js';
 import Line from './objects/Line.js';
 import LogoIut from './objects/LogoIut.js';
-import BouncingSphere from './objects/BouncingSphere.js';
+import Sphere from './objects/Sphere.js';
 import pane from '../utils/Pane.js';
 
 class SCENE {
@@ -48,16 +48,14 @@ class SCENE {
 
     setupGLTFLoader() {
         this.gltfLoader = new GLTFLoader();
-
         this.gltfLoader.load('/logo-iut.glb', (gltf) => {
-            console.log(gltf)
+            // console.log(gltf)
         } )
     }
 
     setupScene() {
         this.scene = new THREE.Scene();
         // this.scene.background = new THREE.Color('rgb(50,0,0)');
-
     }
 
     setupCamera() {
@@ -106,18 +104,6 @@ class SCENE {
         this.renderer.setSize(this.width, this.height);
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     }
-
-    // setupPostProcessing() {
-    //     this.composer = new EffectComposer(this.renderer);
-    //     this.composer.addPass(new RenderPass(this.scene, this.camera));
-    //     const bloomPass = new UnrealBloomPass(
-    //         new THREE.Vector2(window.innerWidth, window.innerHeight),
-    //         1,
-    //         0,
-    //         0
-    //     );
-    //     this.composer.addPass(bloomPass);
-    // }
 
     setupPostProcessing() {
         this.BLOOM_PARAMS = {
@@ -172,9 +158,9 @@ class SCENE {
         this.logoiut = new LogoIut();
         this.cube = new Cube();
         this.cover = new Cover();
-        this.sphere = new Sphere();
+        this.cotton = new Cotton();
         this.line = new Line();
-        this.bouncingSphere = new BouncingSphere();
+        this.sphere = new Sphere();
         this.selectedObject = this.cube;
         this.scene.add(this.selectedObject.group);
         this.camera.position.set(0, 0, 8);    
@@ -197,7 +183,7 @@ class SCENE {
                 break;
             case 'cover':
                 this.selectedObject = this.cover;
-                this.camera.position.set(0, 0, 30);
+                this.camera.position.set(0, 0, 10);
                 this.bloomPass.strength = 0;
                 this.bloomPass.threshold = 0;
                 break;
@@ -207,14 +193,14 @@ class SCENE {
                 this.bloomPass.strength = 1;
                 this.bloomPass.threshold = 0;
                 break;
-            case 'sphere':
-                this.selectedObject = this.sphere;
+            case 'cotton':
+                this.selectedObject = this.cotton;
                 this.camera.position.set(0, 0, 10);
                 this.bloomPass.strength = 0.2;
                 this.bloomPass.threshold = 0;
                 break;
-            case 'bouncingsphere':
-                this.selectedObject = this.bouncingSphere;
+            case 'sphere':
+                this.selectedObject = this.sphere;
                 this.camera.position.set(0, 0, 70);
                 this.bloomPass.strength = 1;
                 this.bloomPass.threshold = 0.3;
@@ -242,8 +228,6 @@ class SCENE {
 
     tick = (time, deltaTime, frame) => {
         // this.stats.begin();
-        // this.logoiut.tick(deltaTime);
-        // this.sphere.tick();
         this.selectedObject.tick(deltaTime);
         this.controls.update();
 

@@ -16,12 +16,6 @@ const Song = ({ data, setCurrentSong }) => {
         }
         songRef.current.classList.add(styles.active);
     }
-    
-    // const convertTime = (time) => {
-    //     const minutes = Math.floor(time / 60);
-    //     const seconds = time % 60 < 10 ? `0${time % 60}` : time % 60;
-    //     return `${minutes}:${seconds}`;
-    // }
 
     return (
         <div className={styles.song} onClick={handleClick} ref={songRef}>
@@ -29,7 +23,6 @@ const Song = ({ data, setCurrentSong }) => {
             <div className={styles.title}>
                 <h4>{data.title}</h4>
                 <h5>{data.artist.name}</h5>
-                {/* <h6>{convertTime(data.duration)}</h6> */}
             </div>
         </div>
     );

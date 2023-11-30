@@ -48,7 +48,6 @@ const Search = () => {
         onDrop,
         accept: "audio/mp3",
         minSize: 0,
-        // maxSize: 10000000,
         multiple: false,
         noClick: true,
     });
@@ -73,17 +72,16 @@ const Search = () => {
         setArtist("");
     };
 
-        // when is active console log active
-        useEffect(() => {
-            console.log(isDragActive);
-        }, [isDragActive]);
-    
 
     return (
         <>
             <div className={styles.searchWrapper} {...getRootProps()}>
-                <input className={styles.searchInput} type="text" placeholder="Search or drop a song" onChange={(e) => setArtist(e.target.value)} onKeyDown={onKeyDown} />
+                <input className={styles.searchInput} type="text" placeholder="Search a song" onChange={(e) => setArtist(e.target.value)} onKeyDown={onKeyDown} />
                 <input {...getInputProps()}/>
+                <h4 className="grey">
+                    {isDragActive ? "Keep going you're almost there" : "Or drop an mp3 file above"}
+                </h4>
+
                 <h4 className="grey">by <a href="https://github.com/amelchabah/" title="author" target="_blank" rel="noreferrer">@amelchabah</a>  &lt;&lt;</h4>
                 
             </div>

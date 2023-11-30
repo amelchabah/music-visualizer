@@ -1,10 +1,8 @@
 import './index.scss';
-import styles from './components/song/Song.module.scss';
 import Search from './components/search/Search';
 import Canvas from './components/canvas/Canvas';
 import Song from './components/song/Song';
 import Picker from './components/picker/Picker';
-import fetchJsonp from 'fetch-jsonp';
 import { useEffect, useState, useRef } from 'react';
 import useCustomStore from './customStore';
 import gsap from 'gsap';
@@ -12,7 +10,6 @@ import gsap from 'gsap';
 function App() {
   const songsRef = useRef(null);
   const songs = useCustomStore((state) => state.songs);
-  const [tracklist, setTracklist] = useState([]);
   const [currentSong, setCurrentSong] = useState(null);
 
   // Utilisez un effet pour surveiller les changements de currentSong
@@ -54,6 +51,7 @@ function App() {
 
 
 
+
   return (
     <>
       {currentSong ? (
@@ -67,16 +65,10 @@ function App() {
         {
           currentSong ? (
             <div className='infos'>
-              {/* <ul className='tracklist'>{tracklist.map(title => ( */}
-              {/* <li key={title}>{title}</li> */}
-              {/* ))}</ul> */}
-              {/* <h4 className='grey tracks'>Last tracks</h4> */}
-
               <br />
               <div className='cover'>
                 <img src={currentSong.album.cover_big} alt="album cover" />
               </div>
-              {/* <h2 className='grey'>// PLAYING</h2> */}
               <h2>{currentSong.title}</h2>
               <h2>{currentSong.artist.name}</h2>
               {
@@ -98,10 +90,7 @@ function App() {
           ))}
         </div>
 
-        {/* show picker only if a song has been researched or dropped */}
-        {songs.length > 0 ? (
-          <Picker />
-        ) : null}
+        <Picker showPicker={songs.length > 0} />
         <Canvas />
       </main>
 
