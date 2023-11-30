@@ -1,3 +1,5 @@
+try it out at https://music-visualizer-amelchabah.vercel.app/ - built with three.js & react 💭
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
